@@ -1,11 +1,13 @@
-前言：如果你不喜欢折腾，那么请直接按 [yyhhenry](https://github.com/yyhhenry/oslab) 的方法安装 Ubuntu 20.04 并配置 WSL2。
+# 配置实验环境
 
-如果你并不喜欢 Ubuntu 20.04，或者讨厌往自己的 WSL2 里安装奇奇怪怪的老版本库和过时的编译器，可以按下面的方法通过容器安装 Ubuntu 20.04 并配置 X11 Forwarding：
+**前言：如果你不喜欢折腾，那么请直接按 [yyhhenry](https://github.com/yyhhenry/oslab) 的方法安装 Ubuntu 20.04 并配置 WSL2。**
+
+如果乐于折腾，并且不喜欢 Ubuntu 20.04，或者讨厌往自己的 WSL2 里安装奇奇怪怪的老版本库和过时的编译器，可以按下面的方法通过容器安装 Ubuntu 20.04 并配置 X Server 转发：
 
 1. 使用 `uname -a` 查看内核版本，去 [WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel) 的 Release 下载对应版本的内核并按指示重新编译 WSL2 的 Linux 内核。确保 `make menuconfig` 的时候勾选 `Miscellaneous filesystems` 中的 `Minix file-system support`。
 
 2. 修改 `/etc/wsl.conf`，加入以下代码：
-```bash
+```ini
 [boot]
 systemd=true
 ```
